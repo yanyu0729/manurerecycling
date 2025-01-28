@@ -1,0 +1,62 @@
+---
+title: "Changes in current manure surplus and synthetic fertilizer use"
+author: "yanyu wang"
+date: "2025-01-28"
+output: html_document
+---
+
+
+```{r}
+library(ggplot2)
+library(raster)
+library(dplyr)
+library(sf)
+library(tmap)
+library(tmaptools)
+tmap_mode("plot")
+library(RColorBrewer)
+library(cluster)
+library(factoextra)
+library(gridExtra)
+library(writexl)
+library(openxlsx)
+library(readxl)
+library(writexl)
+library(waterfalls)
+library(ggthemes)
+```
+
+
+## national level waterfall charts (manure surplus)
+```{r}
+df3 <- read.csv("~/Desktop/revised manure sur/waterfall11062024.csv")
+
+waterfall(df3, fill_by_sign = FALSE, fill_colours = c("#D2B48C", "#CC9900", "#996600", "#009933"),calc_total = TRUE, total_rect_color = "#FDF5E6", total_rect_text_color = "black", rect_text_size = 2, total_axis_text = "Outcome") + 
+  labs(title="", 
+         x="", y = expression(Manure~Surplus ~ "("*Tg~N ~ yr^-1*")"), 
+         
+         
+         ) +
+  theme_bw() +
+    theme( 
+         axis.text.y = element_text(size = 15),
+        axis.title.y  = element_text(size = 15),
+       axis.text.x = element_text(size = 15)) +
+  scale_y_continuous(expand = expansion(mult = c(0, 0)), limits = c(-15, 1))
+```
+
+## national level waterfall charts (synthetic fertilizer use)
+```{r}
+df4 <- read.csv("~/Desktop/revised manure sur/waterfall11062024fer.csv")
+
+waterfall(df4, fill_by_sign = FALSE, fill_colours = c("#D2B48C", "#CC9900", "#996600", "#009933"),calc_total = TRUE, total_rect_color = "#FDF5E6", total_rect_text_color = "black", rect_text_size = 2, total_axis_text = "Outcome" ) + 
+  labs(title="", 
+         x="", y = expression(Synthetic~fertilizer~use~ "("*Tg~N ~ yr^-1*")")) +
+  theme_bw() +
+    theme( 
+         axis.text.y = element_text(size = 15),
+        axis.title.y  = element_text(size = 15),
+       axis.text.x = element_text(size = 15) ) +
+  scale_y_continuous(expand = expansion(mult = c(0, 0)), limits = c(0, 13))
+
+```
