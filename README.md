@@ -19,4 +19,4 @@ library(`writexl`)
 library(`waterfalls`)  
 library(`ggthemes`)    
 
-Source data files were downloaded from USDA-NASS, including crop production and acerage; animal inventory and sales (https://www.nass.usda.gov/). 
+Source data files were downloaded from USDA-NASS, including crop production and acerage; animal inventory and sales (https://www.nass.usda.gov/). They were all provided in .csv format. 
