@@ -1,5 +1,5 @@
 # System requirements 
-### All the analysis was run in R 4.4.0 run via RStudio.     
+### All the analysis was run in R 4.4.2 run via RStudio.     
 R pacakages required:     
 library(`ggplot2`)    
 library(`raster`)  
